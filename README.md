@@ -1,5 +1,7 @@
 # Easy Compile
 
+<img align="right" height="215" width="215" alt="" src="https://faxes.zone/i/vv8VD.png" />
+
 *An easy JavaScript encryption/compiler tool created by [@FAXES](https://github.com/FAXES) & [@PlutoTheDev](https://github.com/braxtongpoll).*
 
 At times file security in your live product is a must have to keep your assets secure in production. Over the past few months we have been looking to make this a possibility, this is when we found [Bytenode](https://www.npmjs.com/package/bytenode) on NPM.
