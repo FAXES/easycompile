@@ -1,4 +1,9 @@
-const fs = require('fs');const chalk = require(`chalk`);const path = require('path');const config = require(`./config.json`);const readline = require(`readline`);const bytenode = require("bytenode");
+const fs = require('fs');
+const chalk = require(`chalk`);
+const path = require('path');
+const config = require(`../config`);
+const readline = require(`readline`);
+const bytenode = require("bytenode");
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -10,13 +15,13 @@ prompt();
 async function prompt() {
     console.clear();
     rl.question(`Provide the directory you would like to compile. Or provide the type of project.\n`, (res) => {
-        if (config.project_types[res]) return project(res);
+        if (config.script.project_types[res]) return project(res);
         encDir(res)
     });
 }
 
 async function project(res) {
-    let directories = config.project_types[res];
+    let directories = config.script.project_types[res];
     let total = 0;
     console.clear();
     console.log(`Compiling directories for ${res}`);
@@ -24,13 +29,13 @@ async function project(res) {
         let files = await fs.readdirSync(directory);
         files.forEach(async(file) => {
             if (file.split(".")[1] !== "js") return;
-            if (config.do_not_compile.includes(file.split(".")[0])) return;
+            if (config.script.do_not_compile.includes(file.split(".")[0])) return;
             let data = fs.readFileSync(path.join(__dirname, directory, "/", file), "utf-8");
             console.log(chalk.italic("Creating backup for " + chalk.blue(`${directory}/${file}`)));
             fs.writeFileSync(path.join(__dirname, "./backups", `${file.split(".")[0]}-${Date.now()}.js`), data);
             bytenode.compileFile({
                 filename: `./${directory}/${file}`,
-                output: `./${directory}/${file.split(".")[0]}${config.file_extension}`
+                output: `./${directory}/${file.split(".")[0]}${config.shared.extension}`
             });
             console.log(chalk.italic("Creating Easy Compile File for " + chalk.blue(`${directory}/${file}`)));
             fs.unlink(path.join(__dirname, directory, "/", file), () => {});
@@ -47,13 +52,13 @@ async function encDir(dir) {
         const files = await fs.readdirSync(dir);
         files.forEach(async(f) => {
             if (f.split(".")[1] !== "js") return;
-            if (config.do_not_compile.includes(f.split(".")[0])) return;
+            if (config.script.do_not_compile.includes(f.split(".")[0])) return;
             let data = fs.readFileSync(path.join(__dirname, dir, "/", f), "utf-8");
             console.log(chalk.italic("Creating backup for " + chalk.blue(`${dir}/${f}`)));
             fs.writeFileSync(path.join(__dirname, "./backups", `${f.split(".")[0]}-${Date.now()}.js`), data);
             bytenode.compileFile({
                 filename: `./${dir}/${f}`,
-                output: `./${dir}/${f.split(".")[0]}${config.file_extension}`
+                output: `./${dir}/${f.split(".")[0]}${config.shared.extension}`
             });
             console.log(chalk.italic("Creating Easy Compile File for " + chalk.blue(`${dir}/${f}`)));
             fs.unlink(path.join(__dirname, dir, "/", f), () => {});
