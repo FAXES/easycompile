@@ -4,6 +4,6 @@
     ],
     "file_extension": ".easycompile",
     "project_types": {
-        "project name": ["src/files", "src/backend"]
+        "project name": ["directory1", "directory2"]
     }
 }
