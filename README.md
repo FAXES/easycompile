@@ -6,7 +6,7 @@
 
 At times file security in your live product is a must have to keep your assets secure in production. Over the past few months we have been looking to make this a possibility, this is when we found [Bytenode](https://www.npmjs.com/package/bytenode) on NPM.
 
-EasyCompile uses Bytenode as its form to complile and secure your files through terminal or via website you can host!
+EasyCompile uses Bytenode as its form to compile and secure your files through terminal or via website you can host!
 
 ### Uses
 
