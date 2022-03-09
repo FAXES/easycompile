@@ -19,4 +19,9 @@ EasyCompile uses Bytenode as its form to complile and secure your files through 
 ### Notes
 With EasyCompile along with near any Javascript compiler this never will provide full secureity on your applications. However, this is a great gateway to further protecting your application.
 
-
+```js
+require("easycompile");
+changeExtension(".fileextension")
+let run = require("./test.fileextension")
+run();
+```
