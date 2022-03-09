@@ -34,6 +34,14 @@ app.post('/sendform', async function(req, res) {
     }, 60000);
 });
 
+app.get("/viewfiles", async function(req, res) {
+    const files = fs.readdirSync("./files").filter(file => file.endsWith(config.shared.extension));
+
+    res.render('viewfiles', {
+        files
+    });
+});
+
 app.listen(config.website.port, async function() {
     console.log(`EasyCompile Started - Created by FAXES & Pluto.`)
 });
