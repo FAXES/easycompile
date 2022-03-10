@@ -1,4 +1,4 @@
-const fs = require('fs');const chalk = require(`chalk`);const path = require('path');const config = require(`./config.json`);const readline = require(`readline`);const bytenode = require("bytenode");const date = new Date(Date.now()).toDateString().replaceAll(" ", "-");
+const fs = require('fs');const chalk = require(`chalk`);const path = require('path');const config = require(`./config.json`);const readline = require(`readline`);const bytenode = require("bytenode");
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -16,6 +16,7 @@ async function prompt() {
 }
 
 async function project(res) {
+    const date = new Date(Date.now()).toDateString().replaceAll(" ", "-");
     let directories = config.project_types[res];
     let total = 0;
     console.clear();
@@ -42,6 +43,7 @@ async function project(res) {
 };
 
 async function encDir(dir) {
+    const date = new Date(Date.now()).toDateString().replaceAll(" ", "-");
     if (fs.existsSync(dir)) {
         let total = 0;
         const files = await fs.readdirSync(dir);
