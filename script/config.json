@@ -1,9 +1,0 @@
-{
-    "do_not_compile": [
-        "config"
-    ],
-    "file_extension": ".easycompile",
-    "project_types": {
-        "project name": ["directory1", "directory2"]
-    }
-}
