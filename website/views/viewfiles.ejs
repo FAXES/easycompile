@@ -1,13 +1,21 @@
 <!-- EasyCompile - created by FAXES & Pluto -->
 <!-- This page was created by HypnoticSiege @ https://hypnoticsiege.net-->
 <%- include('partials/header.ejs') %>
-    <div id="wrapper" style="color: #fff">
-        <div id="main">
-            <div class="inner">
-                <h1>Here are all your compiled files!</h1>
-                <hr style="width: 50%;">
-                <%= files %>
-            </div>
+<div id="wrapper" style="color: #fff">
+    <div id="main">
+        <div class="inner">
+            <h1 style="font-size: 24px; color: #ffffff;">Here are all your compiled files!</h1>
+            <hr style="width: 50%;">
+            <ul>
+                <% files.forEach(file => { %>
+                <li>
+                    <a href="/files/<%= file %>" style="text-decoration: none;">
+                        <%= file %>
+                    </a>
+                </li>
+                <% }); %>
+            </ul>
         </div>
     </div>
-    <%- include('partials/footer.ejs') %>
+</div>
+<%- include('partials/footer.ejs') %>
