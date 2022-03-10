@@ -1,5 +1,5 @@
 // EasyCompile - created by FAXES & Pluto
-const config = require('./config');
+const config = require('./config.json');
 const express = require('express');
 const app = express();
 const fs = require("fs");
