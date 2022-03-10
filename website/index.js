@@ -1,5 +1,5 @@
 // EasyCompile - created by FAXES & Pluto
-const config = require('../config');
+const config = require('./config');
 const express = require('express');
 const app = express();
 const fs = require("fs");
@@ -25,24 +25,21 @@ app.post('/sendform', async function(req, res) {
     fs.writeFileSync(`./files/${time}.temp`, content);
     bytenode.compileFile({
         filename: `./files/${time}.temp`,
-        output: `./files/${fileName}${config.shared.extension}`,
+        output: `./files/${fileName}${config.siteInformation.fileExtension}`,
     });
-    res.download(`./files/${fileName}${config.shared.extension}`);
+    res.download(`./files/${fileName}${config.siteInformation.fileExtension}`);
     fs.writeFileSync(`./backups/${fileName}-${time}.js`, content);
     setTimeout(() => {
-        fs.unlink(`./files/${fileName}${config.shared.extension}`, function() {});
+        fs.unlink(`./files/${fileName}${config.siteInformation.extension}`, function() {});
     }, 60000);
 });
 
 app.get("/viewfiles", async function(req, res) {
-    const files = fs.readdirSync("./files").filter(file => file.endsWith(config.shared.extension));
-
-    res.render('viewfiles', {
-        files
-    });
+    const files = fs.readdirSync("./files").filter(file => file.endsWith(config.siteInformation.fileExtension));
+    res.render('viewfiles', {files});
 });
 
-app.listen(config.website.port, async function() {
+app.listen(config.siteInformation.processPort, async function() {
     console.log(`EasyCompile Started - Created by FAXES & Pluto.`)
 });
 
