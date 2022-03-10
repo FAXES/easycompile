@@ -1,0 +1,7 @@
+{
+    "siteInformation": {
+        "processPort": 3001,
+        "domain": "http://localhost:3001",
+        "fileExtension": "ext"
+    }
+}
