@@ -25,9 +25,9 @@ app.post('/sendform', async function(req, res) {
     fs.writeFileSync(`./files/${time}.temp`, content);
     bytenode.compileFile({
         filename: `./files/${time}.temp`,
-        output: `./files/${fileName}${config.siteInformation.fileExtension}`,
+        output: `./files/${fileName}${config.siteInformation.fileExtension.replaceAll(".", "")}`,
     });
-    res.download(`./files/${fileName}${config.siteInformation.fileExtension}`);
+    res.download(`./files/${fileName}${config.siteInformation.fileExtension.replaceAll(".", "")}`);
     fs.writeFileSync(`./backups/${fileName}-${time}.js`, content);
     setTimeout(() => {
         fs.unlink(`./files/${fileName}${config.siteInformation.extension}`, function() {});
@@ -35,7 +35,7 @@ app.post('/sendform', async function(req, res) {
 });
 
 app.get("/viewfiles", async function(req, res) {
-    const files = fs.readdirSync("./files").filter(file => file.endsWith(config.siteInformation.fileExtension));
+    const files = fs.readdirSync("./files").filter(file => file.endsWith(config.siteInformation.fileExtension.replaceAll(".", "")));
     res.render('viewfiles', {files});
 });
 
