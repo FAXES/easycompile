@@ -1,4 +1,9 @@
-const fs = require('fs');const chalk = require(`chalk`);const path = require('path');const config = require(`./config.json`);const readline = require(`readline`);const bytenode = require("bytenode");
+const fs = require('fs');
+const chalk = require(`chalk`);
+const path = require('path');
+const config = require(`./config.json`);
+const readline = require(`readline`);
+const bytenode = require("bytenode");
 
 const rl = readline.createInterface({
     input: process.stdin,
