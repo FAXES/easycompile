@@ -22,7 +22,6 @@ async function prompt() {
 
 async function project(res) {
     const date = new Date(Date.now()).toDateString().replaceAll(" ", "-")
-    const time
     let directories = config.project_types[res];
     let total = 0;
     console.clear();
@@ -50,7 +49,6 @@ async function project(res) {
 
 async function encDir(dir) {
     const date = new Date(Date.now()).toDateString().replaceAll(" ", "-")
-    const hour = new Date(Date.now()).getTime
     if (fs.existsSync(dir)) {
         let total = 0;
         const files = await fs.readdirSync(dir);
