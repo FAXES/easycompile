@@ -33,7 +33,7 @@ async function project(res) {
             if (config.do_not_compile.includes(file.split(".")[0])) return;
             let data = fs.readFileSync(path.join(__dirname, directory, "/", file), "utf-8");
             console.log(chalk.italic("Creating backup for " + chalk.blue(`${directory}/${file}`)));
-            fs.writeFileSync(path.join(__dirname, ".backups/", `${file.split(".")[0]}-${date}-${Date.now()}.js`), data):
+            fs.writeFileSync(path.join(__dirname, "backups/", `${file.split(".")[0]}-${date}-${Date.now()}.js`), data);
             bytenode.compileFile({
                 filename: `./${directory}/${file}`,
                 output: `./${directory}/${file.split(".")[0]}${config.file_extension}`
@@ -57,7 +57,7 @@ async function encDir(dir) {
             if (config.do_not_compile.includes(f.split(".")[0])) return;
             let data = fs.readFileSync(path.join(__dirname, dir, "/", f), "utf-8");
             console.log(chalk.italic("Creating backup for " + chalk.blue(`${dir}/${f}`)));
-            fs.writeFileSync(path.join(__dirname, ".backups/", `${f.split(".")[0]}-${date}-${Date.now()}.js`), data):
+            fs.writeFileSync(path.join(__dirname, "backups/", `${f.split(".")[0]}-${date}-${Date.now}.js`), data);
             bytenode.compileFile({
                 filename: `./${dir}/${f}`,
                 output: `./${dir}/${f.split(".")[0]}${config.file_extension}`
