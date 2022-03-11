@@ -4,7 +4,6 @@ const path = require('path');
 const config = require(`./config.json`);
 const readline = require(`readline`);
 const bytenode = require("bytenode");
-const date = new Date(Date.now()).toDateString().replaceAll(" ", "-")
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -22,7 +21,8 @@ async function prompt() {
 }
 
 async function project(res) {
-    const date = new Date(Date.now()).toDateString().replaceAll(" ", "-");
+    const date = new Date(Date.now()).toDateString().replaceAll(" ", "-")
+    const time
     let directories = config.project_types[res];
     let total = 0;
     console.clear();
@@ -34,7 +34,7 @@ async function project(res) {
             if (config.do_not_compile.includes(file.split(".")[0])) return;
             let data = fs.readFileSync(path.join(__dirname, directory, "/", file), "utf-8");
             console.log(chalk.italic("Creating backup for " + chalk.blue(`${directory}/${file}`)));
-            fs.writeFileSync(path.join(__dirname, ".backups/", `${file.split(".")[0]}-${date}.js`), data);
+            fs.writeFileSync(path.join(__dirname, "backups/", `${file.split(".")[0]}-${date}-${Date.now()}.js`), data);
             bytenode.compileFile({
                 filename: `./${directory}/${file}`,
                 output: `./${directory}/${file.split(".")[0]}${config.file_extension}`
@@ -49,7 +49,8 @@ async function project(res) {
 };
 
 async function encDir(dir) {
-    const date = new Date(Date.now()).toDateString().replaceAll(" ", "-");
+    const date = new Date(Date.now()).toDateString().replaceAll(" ", "-")
+    const hour = new Date(Date.now()).getTime
     if (fs.existsSync(dir)) {
         let total = 0;
         const files = await fs.readdirSync(dir);
@@ -58,7 +59,7 @@ async function encDir(dir) {
             if (config.do_not_compile.includes(f.split(".")[0])) return;
             let data = fs.readFileSync(path.join(__dirname, dir, "/", f), "utf-8");
             console.log(chalk.italic("Creating backup for " + chalk.blue(`${dir}/${f}`)));
-            fs.writeFileSync(path.join(__dirname, ".backups/", `${f.split(".")[0]}-${date}.js`), data);
+            fs.writeFileSync(path.join(__dirname, "backups/", `${f.split(".")[0]}-${date}-${Date.now}.js`), data);
             bytenode.compileFile({
                 filename: `./${dir}/${f}`,
                 output: `./${dir}/${f.split(".")[0]}${config.file_extension}`
