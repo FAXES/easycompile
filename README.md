@@ -14,15 +14,17 @@ EasyCompile uses Bytenode as its form to compile and secure your files through t
 - Create demo/trial versions of your application without direct source code
 - Secure your commercial products for distribution
 
----
-
-### Usage
-
+## Usage
+To use your compiled script you need the [easy compile npm pakcage](https://www.npmjs.com/package/easycompile) and a file with this code format: 
 ```js
-require("easycompile").changeExtension(".fileextension")
-let run = require("./test.fileextension")
+require("easycompile").changeExtension(".yourfileextension")
+let run = require("./yourcompiledfile.yourfileextension")
 run();
 ```
+after all that run `node yourfilename.js`
 
+---
 ### Notes
 With EasyCompile along with near any Javascript compiler this never will provide full secureity on your applications. However, this is a great gateway to further protecting your application.
+
+---
