@@ -17,8 +17,8 @@ EasyCompile uses Bytenode as its form to compile and secure your files through t
 ## Usage
 To use your compiled script you need the [easy compile npm pakcage](https://www.npmjs.com/package/easycompile) and a file with this code format: 
 ```js
-require("easycompile").changeExtension(".yourfileextension")
-let run = require("./yourcompiledfile.yourfileextension")
+require("easycompile").changeExtension(".easycompile")
+let run = require("./yourcompiledfile.easycompile")
 run();
 ```
 after all that run `node yourfilename.js`
