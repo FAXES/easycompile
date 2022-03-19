@@ -28,3 +28,9 @@ after all that run `node yourfilename.js`
 With EasyCompile along with near any Javascript compiler this never will provide full secureity on your applications. However, this is a great gateway to further protecting your application.
 
 ---
+
+### Contributors
+
+<a href="https://github.com/FAXES/easycompile/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=FAXES/easycompile" />
+</a>
