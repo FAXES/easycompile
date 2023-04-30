@@ -25,7 +25,7 @@ after all that run `node yourfilename.js`
 
 ---
 ### Notes
-With EasyCompile along with near any Javascript compiler this never will provide full security on your applications. However, this is a great gateway to further protecting your application.
+With EasyCompile along with near any Javascript compiler will never provide full security on your applications. However, this is a great gateway to further protect your application.
 
 ---
 
