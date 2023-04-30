@@ -1,15 +1,9 @@
-const fs = require('fs');
-const chalk = require(`chalk`);
-const path = require('path');
-const config = require(`./config.json`);
-const readline = require(`readline`);
-const bytenode = require("bytenode");
+const fs = require('fs'), chalk = require(`chalk`), path = require('path'), config = require(`./config.json`), readline = require(`readline`), bytenode = require("bytenode");
 
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-
 prompt();
 
 async function prompt() {
